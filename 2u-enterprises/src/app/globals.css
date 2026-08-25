@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+/* ============================================================
+   2U ENTERPRISES — Brand tokens (swap hexes here only)
+   White base · light navy · gold. Light, clean, airy.
+   ============================================================ */
+:root {
+  --brand-white: #ffffff;
+  --brand-navy: #2c4a6e;
+  --brand-navy-soft: #eaf0f7;
+  --brand-navy-deep: #223c5c;
+  --brand-gold: #c9a227;
+  --brand-gold-soft: #f3e9c8;
+  --brand-text: #4b5563;
+  --brand-head: #2c4a6e;
+  --brand-neutral: #f6f8fb;
+  --brand-line: #e6ebf2;
+
+  --radius: 14px;
+  --shadow-card: 0 6px 24px rgba(34, 60, 92, 0.08);
+  --shadow-lift: 0 16px 40px rgba(34, 60, 92, 0.16);
+
+  --font-sans: var(--font-poppins), system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--brand-white);
+  color: var(--brand-text);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4 {
+  color: var(--brand-head);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0;
+}
+h1 { font-size: clamp(30px, 4.4vw, 50px); font-weight: 900; }
+h2 { font-size: clamp(26px, 3.5vw, 42px); }
+h3 { font-size: clamp(18px, 2vw, 24px); }
+
+a { color: inherit; text-decoration: none; }
+
+.container { width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+.section { padding: 88px 0; }
+.section-neutral { background: var(--brand-neutral); }
+.section-navy { background: var(--brand-navy); color: #dbe4f0; }
+.section-navy h1, .section-navy h2, .section-navy h3 { color: #fff; }
+
+/* Section tag: the "2U" chevron chip (signature) */
+.section-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--brand-navy); background: var(--brand-gold-soft);
+  padding: 7px 14px 7px 12px; border-radius: 999px;
+}
+.section-tag::before { content: "»"; color: var(--brand-gold); font-weight: 900; font-size: 14px; line-height: 1; }
+.section-tag-light { color: #fff; background: rgba(255, 255, 255, 0.12); }
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  font-family: inherit; font-size: 14px; font-weight: 700; letter-spacing: 0.01em;
+  padding: 13px 24px; border-radius: 999px; border: 2px solid transparent; cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
+}
+.btn:active { transform: translateY(1px); }
+.btn-gold { background: var(--brand-gold); color: #1f2937; box-shadow: 0 6px 18px rgba(201, 162, 39, 0.32); }
+.btn-gold:hover { background: #b8931f; transform: translateY(-2px); }
+.btn-navy { background: var(--brand-navy); color: #fff; }
+.btn-navy:hover { background: var(--brand-navy-deep); transform: translateY(-2px); }
+.btn-outline { background: transparent; color: var(--brand-navy); border-color: var(--brand-line); }
+.btn-outline:hover { border-color: var(--brand-gold); color: var(--brand-gold); }
+.btn-block { width: 100%; }
+
+/* Cards */
+.card {
+  background: #fff; border: 1px solid var(--brand-line); border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.card-hover:hover { transform: translateY(-6px); box-shadow: var(--shadow-lift); border-color: var(--brand-gold); }
+
+/* Forms */
+.field-label {
+  display: block; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
+  color: var(--brand-navy); margin-bottom: 6px;
+}
+.field {
+  width: 100%; font-family: inherit; font-size: 15px; color: #1f2937; background: #fff;
+  border: 1.5px solid var(--brand-line); border-radius: 10px; padding: 12px 14px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.field:focus { outline: none; border-color: var(--brand-gold); box-shadow: 0 0 0 3px var(--brand-gold-soft); }
+textarea.field { min-height: 110px; resize: vertical; }
+@media (max-width: 480px) { .field { font-size: 16px; } }
+
+/* Animations */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.fade-up { animation: fadeUp 0.6s ease both; }
+.fade-in { animation: fadeIn 0.8s ease both; }
+
+:focus-visible { outline: 2px solid var(--brand-gold); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; scroll-behavior: auto !important; transition: none !important; } }
+
+.eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--brand-gold); }
+.muted { color: var(--brand-text); }
